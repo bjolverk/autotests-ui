@@ -3,48 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        h6{
+    font-size: 15px;
+        }
+        .h2-text {
+            color:red;
+        }
+        .h6-text{
+            color:yellow;
+        }
+        #h1-text{
+            font-size:50px;
+        }
+        ul > li:nth-child(2){
+            color:green;
+            font-weight: bold;
+        }
+        input[type='text']{
+            background-color: red;
+        }
+        a:hover{
+            color: red;
+            font-weight: bold;
+        }
+        li.nth-child(2)::marker{
+            color: purple;
+        }
+    </style>
 </head>
 <body>
-<h1>H1 text</h1>
-<h2>H2 text</h2>
-<h6>H3 text</h6>
-<p>Native mobile emulation of Google Chrome for Android and Mobile Safari. The same rendering engine works on your
-    Desktop and in the Cloud.</p>
-<a href="https://playwright.dev/python/" target="_blank">Python</a>
-<img src="https://playwright.dev/python/img/logos/Browsers.png" alt="browsers.png" style="width: 250px">
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
+<div class="python">
 
-</ul>
-<ol>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-</ol>
+    <h1 id="h1-text">H1 text</h1>
+    <h1>H1 text2</h1>
+    <h2 class="h2-text">H2 text</h2>
+    <h6 class="h2-text h6-text">H6 text</h6>
+    <p>Native mobile emulation of Google Chrome for Android and Mobile Safari. The same rendering engine works on your
+        Desktop and in the Cloud.</p>
+    <a href="https://playwright.dev/python/" target="_blank">Python</a>
+    <img src="https://playwright.dev/python/img/logos/Browsers.png" alt="browsers.png" style="width: 250px">
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
 
-<form action="/action" method="POST">
-    <input type="text" value="12345" placeholder="text">
-    <input required type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <textarea placeholder="Text">12345</textarea>
-    <button type="submit">Text</button>
-</form>
-<table style="border: 1px solid black;">
-    <thead>
-    <tr >
-        <td style="border: 1px solid black;">Item 1</td>
-        <td style="border: 1px solid black;">Item 2</td>
-        <td style="border: 1px solid black;">Item 3</td>
-    </tr>
-    <tbody>
-    <tr>
-        <td style="border: 1px solid black;">Row 1</td>
-        <td style="border: 1px solid black;">Row 2</td>
-        <td style="border: 1px solid black;">Row 3</td>
-    </tr>
-    </tbody>
-    </thead></table>
+    </ul>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+
+    </ul>
+
+    <form action="/action" method="POST">
+        <input type="text" value="12345" placeholder="text">
+        <input required type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <textarea placeholder="Text">12345</textarea>
+        <button type="submit">Text</button>
+    </form>
+    <table style="border: 1px solid black;">
+        <thead>
+        <tr>
+            <td style="border: 1px solid black;">Item 1</td>
+            <td style="border: 1px solid black;">Item 2</td>
+            <td style="border: 1px solid black;">Item 3</td>
+        </tr>
+        <tbody>
+        <tr>
+            <td style="border: 1px solid black;">Row 1</td>
+            <td style="border: 1px solid black;">Row 2</td>
+            <td style="border: 1px solid black;">Row 3</td>
+        </tr>
+        </tbody>
+        </thead>
+    </table>
+</div>
+
+<div class="javascript">
+    <a href="https://playwright.dev/python/" target="_blank">JavaScript</a>
+    <h2 class="h2-text">H2 text</h2>
+</div>
 </body>
 </html>
