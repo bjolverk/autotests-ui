@@ -1,7 +1,6 @@
 from playwright.sync_api import sync_playwright, expect
 
 def test_wrong_email_or_password_authorization():
-    from playwright.sync_api import sync_playwright, expect
 
     with sync_playwright() as playwright:
         browser = playwright.firefox.launch(headless=False)
