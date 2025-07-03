@@ -1,5 +1,8 @@
+import pytest
 from playwright.sync_api import sync_playwright, expect
 
+@pytest.mark.regression
+@pytest.mark.registration
 def test_successful_registration():
     TEST_DATA = {
         "email": "user.name@gmail.com",
