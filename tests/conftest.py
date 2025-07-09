@@ -32,7 +32,7 @@ def initialize_browser_state(playwright: Playwright) -> Page:
     page.get_by_test_id("registration-page-registration-button").click()
 
     # Проверка успешной регистрации
-    assert page.url == "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard"
+    expect(page).to_have_url("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard")
 
     # Сохранение состояния
     context.storage_state(path='browser-state.json')
