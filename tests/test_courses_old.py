@@ -5,6 +5,10 @@ import pytest
 @pytest.mark.courses
 @pytest.mark.regression
 def test_empty_courses_list():
+    """
+    Тест сохранён на всякий случай.
+    :return:
+    """
     TEST_DATA = {
         "email": "user.name@gmail.com",
         "username": "username",
