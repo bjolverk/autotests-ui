@@ -36,7 +36,6 @@ def initialize_browser_state(playwright: Playwright) -> Page:
 
     # Сохранение состояния
     context.storage_state(path='browser-state.json')
-    context.close()
     browser.close()
 
 
@@ -46,5 +45,4 @@ def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -
     context = browser.new_context(storage_state='browser-state.json')
     page = context.new_page()
     yield page
-    context.close()
     browser.close()
