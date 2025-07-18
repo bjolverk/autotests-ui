@@ -23,3 +23,4 @@ def test_successful_registration(registration_page: RegistrationPage, dashboard_
 
     dashboard_page.check_dashboard_url()
     dashboard_page.check_dashboard_title()
+    time.sleep(5)
