@@ -4,7 +4,7 @@ import pytest
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list():
+def old_test_empty_courses_list():
     """
     Тест сохранён на всякий случай.
     :return:
