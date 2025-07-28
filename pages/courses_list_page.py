@@ -19,8 +19,7 @@ class CoursesListPage(BasePage):
         self.sidebar = SidebarComponent(page)
         self.toolbar_view = CoursesListToolbarComponent(page)
 
-        # self.courses_title = page.get_by_test_id('courses-list-toolbar-title-text')
-        # self.create_course_button = page.get_by_test_id('courses-list-toolbar-create-course-button')
+
 
     def check_visible_empty_view(self):
         self.empty_view.check_visible(title='There is no results',
