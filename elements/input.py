@@ -15,3 +15,10 @@ class Input(BaseElement):
         locator = self.get_locator(**kwargs)
         expect(locator).to_have_value(value)
 
+    def check_empty(self, **kwargs):
+        locator = self.get_locator(**kwargs)
+        expect(locator).to_be_empty()
+
+    def check_editable(self, **kwargs):
+        locator = self.get_locator(**kwargs)
+        expect(locator).to_be_editable()

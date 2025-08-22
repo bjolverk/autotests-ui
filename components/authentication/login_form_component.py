@@ -1,34 +1,35 @@
 from components.base_component import BaseComponent
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
+from elements.input import Input
 
 
 class LoginFormComponent(BaseComponent):
     def __init__(self, page: Page):
         super().__init__(page)
-        self.email = page.get_by_test_id('login-form-email-input').locator('input')
-        self.password = page.get_by_test_id('login-form-password-input').locator('input')
-        self.form_сontainer =page.locator('(//div[@class="MuiBox-root css-0"])[2]')
+        self.email = Input(page, 'login-form-email-input', 'Email')
+        self.password = Input(page, 'login-form-password-input', 'Password')
 
     def fill(self, email: str, password: str):
         self.email.fill(email)
-        expect(self.email).to_have_value(email)
+
+        self.email.check_have_value(email)
 
         self.password.fill(password)
-        expect(self.password).to_have_value(password)
 
-    def check_visible(self, email: str = None, password: str = None ):
-        expect(self.form_сontainer).to_be_visible()
+        self.password.check_have_value(password)
 
-        expect(self.email).to_be_visible()
+    def check_visible(self, email: str = None, password: str = None):
+
+        self.email.check_visible()
         if email is not None:
-            expect(self.email).to_have_value(email)
+            self.email.check_have_value(email)
         else:
-            expect(self.email).to_be_empty()
-            expect(self.email).to_be_editable()
+            self.email.check_empty()
+            self.email.check_editable()
 
-        expect(self.password).to_be_visible()
+        self.password.check_visible()
         if password is not None:
-            expect(self.password).to_have_value(password)
+            self.password.check_have_value(password)
         else:
-            expect(self.password).to_be_empty()
-            expect(self.password).to_be_editable()
+            self.password.check_empty()
+            self.password.check_editable()
