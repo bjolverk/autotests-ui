@@ -87,4 +87,4 @@ class TestCourses:
             max_score='5',
             min_score='1'
         )
-        # create_course_page.page.wait_for_timeout(10000)
+
