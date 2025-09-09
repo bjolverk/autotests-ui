@@ -13,7 +13,7 @@ class DashboardPage(BasePage):
 
         self.navbar = NavbarComponent(page)
         self.sidebar = SidebarComponent(page)
-        self.dashboard = DashboardToolbarViewComponent(page)
+        self.dashboard_toolbar_view = DashboardToolbarViewComponent(page)
 
         self.students_chart_view = ChartViewComponent(page, "students", "bar")
         self.activities_chart_view = ChartViewComponent(page, 'activities', 'line')
@@ -24,7 +24,7 @@ class DashboardPage(BasePage):
         expect(self.page).to_have_url('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard')
 
     def check_visible_dashboard_title(self):
-        self.dashboard.check_visible()
+        self.dashboard_toolbar_view.check_visible()
 
     def check_visible_students_chart(self):
         self.students_chart_view.check_visible('Students')

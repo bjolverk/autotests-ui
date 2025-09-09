@@ -1,5 +1,8 @@
 import pytest
-from playwright.sync_api import  Page, Playwright, expect
+from playwright.sync_api import Playwright, Page
+
+from pages.authentication.registration_page import RegistrationPage
+
 
 @pytest.fixture
 def chromium_page(playwright: Playwright) -> Page:
@@ -9,30 +12,23 @@ def chromium_page(playwright: Playwright) -> Page:
 
 
 @pytest.fixture(scope="session")
-def initialize_browser_state(playwright: Playwright) -> Page:
+def initialize_browser_state(playwright: Playwright):
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
 
-    # Регистрация пользователя
-    page.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration')
-    page.get_by_test_id("registration-form-email-input").locator("input").fill("user.name@gmail.com")
-    page.get_by_test_id("registration-form-username-input").locator("input").fill("username")
-    page.get_by_test_id("registration-form-password-input").locator("input").fill("password")
-    page.get_by_test_id("registration-page-registration-button").click()
+    registration_page = RegistrationPage(page=page)
+    registration_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration')
+    registration_page.registration_form.fill(email='user.name@gmail.com', username='username', password='password')
+    registration_page.click_registration_button()
 
-    # Проверка успешной регистрации
-    expect(page).to_have_url("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard")
-
-    # Сохранение состояния
-    context.storage_state(path='browser-state.json')
+    context.storage_state(path="browser-state.json")
     browser.close()
 
 
 @pytest.fixture
 def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
     browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context(storage_state='browser-state.json')
-    page = context.new_page()
-    yield page
+    context = browser.new_context(storage_state="browser-state.json")
+    yield context.new_page()
     browser.close()

@@ -44,7 +44,7 @@ def old_test_empty_courses_list():
         dashboard_label = page.get_by_test_id("dashboard-toolbar-title-text")
         expect(dashboard_label).to_have_text("Dashboard")
 
-        context.storage_state(path='browser-state.json')
+        context.storage_state(path='../browser-state.json')
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
