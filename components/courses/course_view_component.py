@@ -4,6 +4,7 @@ from components.base_component import BaseComponent
 from components.courses.course_view_menu_component import CourseViewMenuComponent
 from elements.text import Text
 from elements.image import Image
+import allure
 
 
 class CourseViewComponent(BaseComponent):
@@ -18,6 +19,7 @@ class CourseViewComponent(BaseComponent):
         self.min_score_text = Text(page, 'course-min-score-info-row-view-text', 'Min Score')
         self.estimated_time_text = Text(page, 'course-estimated-time-info-row-view-text', 'Estimated_time')
 
+    @allure.step('Check visible course view at index "{index}"')
     def check_visible(self, index: int, title: str, max_score: str, min_score: str, estimated_time: str):
         self.image.check_visible(nth=index)
 
@@ -31,4 +33,4 @@ class CourseViewComponent(BaseComponent):
         self.min_score_text.check_have_text(f"Min score: {min_score}", nth=index)
 
         self.estimated_time_text.check_visible(nth=index)
-        self.estimated_time_text.check_have_text( f"Estimated time: {estimated_time}", nth=index)
+        self.estimated_time_text.check_have_text(f"Estimated time: {estimated_time}", nth=index)

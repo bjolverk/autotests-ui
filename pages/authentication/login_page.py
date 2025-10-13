@@ -7,6 +7,8 @@ from elements.text import Text
 from pages.base_page import BasePage
 import re
 
+import allure
+
 
 class LoginPage(BasePage):
     def __init__(self, page: Page):
@@ -31,7 +33,7 @@ class LoginPage(BasePage):
         self.registration_link.click()
         self.check_current_url(re.compile(".*/#/auth/registration"))
 
+    @allure.step("Check visible wrong email or password alert")
     def check_visible_wrong_email_or_password_alert(self):
         self.wrong_email_or_password_alert.check_visible()
         self.wrong_email_or_password_alert.check_have_text('Wrong email or password')
-
